@@ -211,6 +211,6 @@
   .inner { padding: 110px 0 90px; max-width: 100%; }
   .name { letter-spacing: -2px; }
   .stats { width: 100%; }
-  .actions { flex-direction: column; align-items: flex-start; }
+  .actions { flex-wrap: wrap; }
   .scroll { display: none; }
 }
