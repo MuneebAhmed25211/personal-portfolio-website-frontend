@@ -15,7 +15,7 @@ export default function Skills() {
     <section className={s.section} id="skills" ref={ref as React.RefObject<HTMLElement>}>
       <div className="container">
         <span className={`${s.label} reveal`}>// skills</span>
-        <h2 className={`${s.title} reveal reveal-delay-1`}>Full Stack, <span className={s.accent}>No Gaps</span></h2>
+        <h2 className={`${s.title} reveal reveal-delay-1`}>Full Stack <span className={s.accent}>AI Developer</span></h2>
         <p className={`${s.sub} reveal reveal-delay-2`}>From training AI models to shipping mobile apps — I cover the entire product stack.</p>
 
         <div className={s.grid}>
@@ -33,11 +33,6 @@ export default function Skills() {
               ))}
             </div>
           ))}
-        </div>
-
-        <div className={`${s.tags} reveal`}>
-          <span className={s.tagsLbl}>// tech I work with daily</span>
-          <div className={s.tagList}>{tags.map(t=><span key={t} className={s.tag}>{t}</span>)}</div>
         </div>
       </div>
     </section>
