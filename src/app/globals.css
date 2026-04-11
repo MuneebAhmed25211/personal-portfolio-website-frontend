@@ -1,42 +1,110 @@
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Design Tokens ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:        #070a0e;
+  --bg2:       #0b1018;
+  --bg3:       #0f1620;
+  --surface:   #121a24;
+  --surface2:  #18212e;
+  --border:    #1c2a38;
+  --border2:   #243448;
+
+  --amber:     #f5a623;
+  --amber-d:   #d4891a;
+  --amber-glow: rgba(245,166,35,0.14);
+  --amber-dim:  rgba(245,166,35,0.06);
+
+  --cyan:      #22d3ee;
+  --green:     #10b981;
+  --red:       #f43f5e;
+
+  --text:      #e8edf2;
+  --text2:     #8fa3b8;
+  --text3:     #506070;
+  --text4:     #2d3f50;
+
+  /* Fonts injected by next/font via className on <html> */
+  --font-mono:    var(--font-mono, 'Courier New', monospace);
+  --font-display: var(--font-display, Georgia, serif);
+  --font-body:    var(--font-body, system-ui, sans-serif);
+
+  --r:   8px;
+  --rl:  16px;
+  --tr:  0.22s cubic-bezier(.4,0,.2,1);
+  --tr-slow: 0.55s cubic-bezier(.4,0,.2,1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border2) var(--bg);
 }
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: var(--bg); }
+::-webkit-scrollbar-thumb  { background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--amber-d); }
 
-html,
 body {
-  max-width: 100vw;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Grid dot background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 70% 40% at 60% 0%, rgba(245,166,35,.07) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 30% at 0% 80%, rgba(34,211,238,.04) 0%, transparent 50%),
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,.035) 1px, transparent 0);
+  background-size: auto, auto, 40px 40px;
+  pointer-events: none;
+  z-index: 0;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+a    { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+img  { max-width: 100%; display: block; }
+
+::selection { background: var(--amber-glow); color: var(--amber); }
+
+/* ── Layout ── */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+section    { position: relative; z-index: 1; }
+
+/* ── Scroll-reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
+
+/* ── Keyframes ── */
+@keyframes fadeUp   { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
+@keyframes fadeIn   { from { opacity:0 } to { opacity:1 } }
+@keyframes blink    { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes float    { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+@keyframes spin     { to { transform:rotate(360deg) } }
+@keyframes pulse-g  { 0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.35)} 50%{box-shadow:0 0 0 7px rgba(16,185,129,0)} }
+@keyframes shimmer  {
+  0%   { background-position: -400px 0 }
+  100% { background-position:  400px 0 }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+.anim-fade-up { animation: fadeUp .7s ease both; }
