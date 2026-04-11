@@ -44,13 +44,19 @@ export default function Chatbot() {
         body: JSON.stringify({ messages: updated }),
       })
       const data = await res.json()
-      setMsgs([...updated, { role: 'assistant', content: data.reply || "Something went wrong. Please contact Muneeb directly at muneebahmedeas@gmail.com" }])
+      setMsgs([...updated, { role: 'assistant', content: data.reply || "Something went wrong. Please contact Muneeb directly at muneebahmad25211@gmail.com" }])
     } catch {
-      setMsgs([...updated, { role: 'assistant', content: "Network error. Please email muneebahmedeas@gmail.com directly!" }])
+      setMsgs([...updated, { role: 'assistant', content: "Network error. Please email muneebahmad25211@gmail.com directly!" }])
     } finally {
       setLoad(false)
     }
   }
+  useEffect(() => {
+  const ping = () => fetch('/api/health').catch(() => {})
+  ping()
+  const id = setInterval(ping, 10 * 60 * 1000)
+  return () => clearInterval(id)
+}, [])
 
   const onKey = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send() }
@@ -74,7 +80,7 @@ export default function Chatbot() {
             <div className={s.av}>M</div>
             <div>
               <p className={s.hName}>Muneeb's Assistant</p>
-              <p className={s.hSub}><span className={s.online} />Online · powered by Claude</p>
+              <p className={s.hSub}><span className={s.online} />Online · powered by Groq</p>
             </div>
           </div>
           <button className={s.close} onClick={() => setOpen(false)}>
