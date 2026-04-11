@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     'I build production-grade Agentic AI systems, web apps, and mobile apps for founders and CTOs. LangGraph • CrewAI • Next.js • Flutter • FastAPI.',
   keywords: ['AI Developer', 'Agentic AI', 'LangGraph', 'CrewAI', 'Next.js', 'Flutter', 'FastAPI'],
   authors: [{ name: 'Muneeb Ahmed' }],
+  verification: {
+    google: 'cxWDgfVRtqbjT6lLv9C-MwjFgZoM9NbVQrj2obL8qLI',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
