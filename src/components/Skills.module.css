@@ -17,15 +17,15 @@
 .icon { font-size: 20px; }
 .cardTitle { font-family: var(--font-mono); font-size: 13px; color: var(--text2); font-weight: 700; }
 
-.skill { display: flex; flex-direction: column; gap: 6px; }
-.skillMeta { display: flex; justify-content: space-between; }
+.skill { display: flex; flex-direction: column; gap: 8px; }
+.skillMeta { display: flex; justify-content: space-between; align-items: baseline; }
 .sName { font-family: var(--font-mono); font-size: 13px; color: var(--text); }
-.sPct  { font-family: var(--font-mono); font-size: 11px; color: var(--text3); }
-.bar   { height: 3px; background: var(--bg); border-radius: 2px; overflow: hidden; }
-.fill  { height: 100%; border-radius: 2px; transition: width 1s ease; }
-.fill_amber { background: var(--amber); }
-.fill_cyan  { background: var(--cyan); }
-.fill_green { background: var(--green); }
+.sLevel { font-family: var(--font-mono); font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: .5px; }
+.dots { display: flex; gap: 5px; }
+.dot { width: 16px; height: 4px; border-radius: 2px; background: var(--bg); border: 1px solid var(--border); transition: all var(--tr); }
+.dotOn_amber { background: var(--amber); border-color: var(--amber); }
+.dotOn_cyan  { background: var(--cyan);  border-color: var(--cyan); }
+.dotOn_green { background: var(--green); border-color: var(--green); }
 
 .tags { }
 .tagsLbl { font-family: var(--font-mono); font-size: 12px; color: var(--text3); display: block; margin-bottom: 14px; }
