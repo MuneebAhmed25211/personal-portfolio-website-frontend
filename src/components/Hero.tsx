@@ -67,11 +67,7 @@ export default function Hero() {
           {/* Stats */}
           <div className={s.stats}>
             <div className={s.stat}>
-              <span className={s.sNum}>10+</span>
-              <span className={s.sLbl}>Mobile Apps</span>
-            </div>
-            <div className={s.stat}>
-              <span className={s.sNum}>2</span>
+              <span className={s.sNum}>3</span>
               <span className={s.sLbl}>AI Agents Live</span>
             </div>
             <div className={s.stat}>
