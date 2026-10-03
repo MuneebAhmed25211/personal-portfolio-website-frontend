@@ -2,12 +2,14 @@
 import { useReveal } from '@/lib/useReveal'
 import s from './Skills.module.css'
 
-const groups = [
-  { cat:'AI & Machine Learning', icon:'🤖', color:'amber', skills:[['LangGraph',95],['CrewAI',90],['LangChain',92],['TensorFlow',80],['OpenAI API',95]] },
-  { cat:'Web Development',       icon:'🌐', color:'cyan',  skills:[['Next.js',90],['React.js',88],['FastAPI',85],['TypeScript',82],['Docker',75]] },
-  { cat:'Mobile Development',    icon:'📱', color:'green', skills:[['Flutter',92],['Dart',90],['Kotlin',75],['Firebase',88],['Supabase',85]] },
+type Level = 'Expert' | 'Advanced' | 'Proficient'
+const levelDots: Record<Level, number> = { Expert: 5, Advanced: 4, Proficient: 3 }
+
+const groups: { cat:string, icon:string, color:string, skills:[string,Level][] }[] = [
+  { cat:'AI & Machine Learning', icon:'🤖', color:'amber', skills:[['LangGraph','Expert'],['CrewAI','Expert'],['LangChain','Expert'],['TensorFlow','Advanced'],['OpenAI API','Expert']] },
+  { cat:'Web Development',       icon:'🌐', color:'cyan',  skills:[['Next.js','Expert'],['React.js','Advanced'],['FastAPI','Advanced'],['TypeScript','Advanced'],['Docker','Proficient']] },
+  { cat:'Mobile Development',    icon:'📱', color:'green', skills:[['Flutter','Expert'],['Dart','Expert'],['Kotlin','Proficient'],['Firebase','Advanced'],['Supabase','Advanced']] },
 ]
-const tags = ['Python','TypeScript','Dart','Kotlin','LangGraph','CrewAI','LangChain','OpenAI','Next.js','React','FastAPI','Flutter','Firebase','Supabase','PostgreSQL','TensorFlow','Docker','Vercel','Render','Git']
 
 export default function Skills() {
   const ref = useReveal()
@@ -25,10 +27,20 @@ export default function Skills() {
                 <span className={s.icon}>{g.icon}</span>
                 <span className={s.cardTitle}>{g.cat}</span>
               </div>
-              {g.skills.map(([name,pct]) => (
+              {g.skills.map(([name,level]) => (
                 <div key={name} className={s.skill}>
-                  <div className={s.skillMeta}><span className={s.sName}>{name}</span><span className={s.sPct}>{pct}%</span></div>
-                  <div className={s.bar}><div className={`${s.fill} ${s['fill_'+g.color]}`} style={{width:`${pct}%`}} /></div>
+                  <div className={s.skillMeta}>
+                    <span className={s.sName}>{name}</span>
+                    <span className={s.sLevel}>{level}</span>
+                  </div>
+                  <div className={s.dots}>
+                    {[1,2,3,4,5].map(n => (
+                      <span
+                        key={n}
+                        className={`${s.dot} ${n <= levelDots[level] ? s['dotOn_'+g.color] : ''}`}
+                      />
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
