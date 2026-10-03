@@ -10,10 +10,9 @@
 .hot { border-color: rgba(245,166,35,.35); background: linear-gradient(135deg, var(--surface) 0%, rgba(245,166,35,.06) 100%); }
 .hotBadge { position: absolute; top:-1px; left:26px; background:var(--amber); color:var(--bg); font-family:var(--font-mono); font-size:10px; font-weight:700; padding:4px 12px; border-radius:0 0 6px 6px; }
 
-.cardTop { display:flex; align-items:flex-start; gap:14px; margin-top:14px; }
+.cardTop { display:flex; align-items:center; gap:14px; margin-top:14px; }
 .icon { font-size:26px; }
-.sTitle { font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--text); margin-bottom:4px; }
-.price { font-family:var(--font-mono); font-size:13px; color:var(--amber); }
+.sTitle { font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--text); }
 .desc { font-size:14px; color:var(--text2); line-height:1.75; font-weight:300; }
 
 .features { list-style:none; display:flex; flex-direction:column; gap:10px; flex:1; }
