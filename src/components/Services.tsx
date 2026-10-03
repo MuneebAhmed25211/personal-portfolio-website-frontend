@@ -6,7 +6,6 @@ const services = [
   {
     icon: '⚡',
     title: 'Agentic AI Systems',
-    price: 'From $2,500',
     desc: 'Multi-agent pipelines that work reliably in production. LangGraph + CrewAI with proper state management, error handling, and human fallbacks.',
     features: [
       'Multi-agent orchestration with LangGraph',
@@ -20,7 +19,6 @@ const services = [
   {
     icon: '🤖',
     title: 'Generative AI & Chatbots',
-    price: 'From $2,500',
     desc: 'LangChain-powered RAG systems, custom chatbots, and document Q&A. AI that knows your business and talks to your users intelligently.',
     features: [
       'RAG pipelines with vector databases',
@@ -34,7 +32,6 @@ const services = [
   {
     icon: '👁️',
     title: 'Computer Vision',
-    price: 'From $2,000',
     desc: 'TensorFlow-based image classification, object detection, and custom model training — integrated into real products, not just notebooks.',
     features: [
       'Image classification & recognition',
@@ -48,7 +45,6 @@ const services = [
   {
     icon: '🌐',
     title: 'Web App Development',
-    price: 'From $2,000',
     desc: 'Full-stack web apps with Next.js frontends and FastAPI backends. SEO-optimized, fast deployments, real authentication flows.',
     features: [
       'Next.js 14+ with App Router',
@@ -62,7 +58,6 @@ const services = [
   {
     icon: '📱',
     title: 'Mobile App Development',
-    price: 'From $1,500',
     desc: '10+ apps shipped. Flutter or native Kotlin — built for real users, production-deployed, properly maintained.',
     features: [
       'Cross-platform Android apps (Flutter)',
@@ -76,7 +71,6 @@ const services = [
   {
     icon: '🔧',
     title: 'Maintenance & Retainer',
-    price: '$200–500 / month',
     desc: "Ongoing support for systems I build. Bug fixes, monitoring, updates, and small features — so you're never stuck waiting.",
     features: [
       'Monthly bug fixes & updates',
@@ -109,7 +103,6 @@ export default function Services() {
                 <span className={s.icon}>{sv.icon}</span>
                 <div>
                   <h3 className={s.sTitle}>{sv.title}</h3>
-                  <span className={s.price}>{sv.price}</span>
                 </div>
               </div>
               <p className={s.desc}>{sv.desc}</p>
@@ -127,7 +120,7 @@ export default function Services() {
         </div>
         <div className={`${s.note} reveal`}>
           <span className={s.noteMono}>// Note: </span>
-          All prices are starting points. Final cost depends on complexity and timeline. I always give honest estimates — no hidden fees.
+          Every project is scoped individually based on complexity and timeline. Get in touch for an honest quote — no hidden fees.
         </div>
       </div>
     </section>
